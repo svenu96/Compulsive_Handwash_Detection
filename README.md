@@ -26,11 +26,11 @@ The dataset consists of data from **22 participants** over 28 days. Participant 
 
 - **DBSCAN:** In the three-label data, label 0 (no handwash) greatly outnumbers labels 1 and 2.
 - **K-means:** After removing label 0, label 2 is more common than label 1 in the illustrated distribution. The participant 30 counts above likewise show more label 2 than label 1 before windowing. The Transformer section also reports **7,328 label-1 windows** and **3,163 label-2 windows** after sliding-window preparation.
-- **Balancing methods:** Random undersampling and SMOTE oversampling of the training data were performed. Also calculated class weights and used a weighted loss so the less represented class has more influence during training.
+- **Balancing methods:** Random undersampling and SMOTE oversampling of the training data using classical machine learning methods were performed. Also calculated class weights and used a weighted loss so the less represented class has more influence during training using transformers.
 
 ## Model results
 
-**Table 4 — multiclass results for participant 30** (reported as a comparison; the focused classification task above uses labels 1 and 2):
+**Multiclass results:** (reported as a comparison; the focused classification task above uses labels 1 and 2):
 
 | Model | Accuracy | Mean F1-score |
 | --- | ---: | ---: |
@@ -39,7 +39,7 @@ The dataset consists of data from **22 participants** over 28 days. Participant 
 | Naive Bayes | 0.36 | 0.35 |
 | XGBoost | 0.37 | 0.36 |
 
-**Table 5 — binary results for participant 30:**
+**Binary classification results:**
 
 | Model | Accuracy | Mean F1-score |
 | --- | ---: | ---: |
@@ -48,7 +48,9 @@ The dataset consists of data from **22 participants** over 28 days. Participant 
 | Naive Bayes | 0.43 | 0.30 |
 | XGBoost | 0.48 | 0.48 |
 
-**Figure 43 — deep convolutional Transformer, binary routine-versus-compulsive classification:**
+Since classical machine learning models like Random Forest, Naive Bayes, XGBoost and Logistic regression did not achieve good results, deep convolutional transformer model was explored.
+
+**Deep convolutional Transformer, binary routine-versus-compulsive classification:**
 
 | Class | Precision | Recall | F1-score | Support |
 | --- | ---: | ---: | ---: | ---: |
